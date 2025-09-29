@@ -28,4 +28,9 @@ class Venue extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
 }

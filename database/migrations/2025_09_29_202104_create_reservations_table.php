@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text("description")->nullable();
             $table->dateTime("starts_at");
             $table->dateTime("ends_at");
+            $table->integer("status")->default(0);
             $table->timestamps();
         });
     }

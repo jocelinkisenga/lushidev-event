@@ -6,6 +6,7 @@ use App\Http\Controllers\Owner\CategoryController;
 use App\Http\Controllers\Owner\OwnerDashboardController;
 use App\Http\Controllers\Owner\ProductController;
 use App\Http\Controllers\Owner\VenueController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -24,7 +25,8 @@ Route::get("/", [App\Http\Controllers\MainController::class, "index"])->name('ho
 Route::get("/salle/{title}/{id}", [App\Http\Controllers\MainController::class, "show"])->name('salle.single');
 
 Route::middleware("auth")->group(function () {
-
+    Route::post("reserve",[ReservationController::class,"store"])->name("store.reservation");
+    Route::get("sent/{id}", [ReservationController::class, "send"])->name("sent.reservation");
 });
 
 // Routes for owner

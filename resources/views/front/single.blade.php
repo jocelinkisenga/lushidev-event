@@ -53,17 +53,34 @@
     <div class="col-md-4">
         <div class="info-card">
             <h4>Réservez maintenant</h4>
-            <form class="mt-3">
+            <form class="mt-3" action="{{ route("store.reservation") }}" method="POST">
+                @csrf
                 <div class="mb-3">
-                    <label class="form-label">Date</label>
-                    <input type="d" class="form-control">
-                    
+                    <label class="form-label">Nom de l'evenement</label>
+                    <input type="text" name="title" class="form-control" placeholder="👥">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Date et heure de debut</label>
+                    <input type="dateTime-Local" name="starts_at" class="form-control">
+
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Nombre de personnes</label>
-                    <input type="number" class="form-control" placeholder="👥">
+                    <label class="form-label">Date et heure de fin</label>
+                    <input type="dateTime-Local" name="ends_at" class="form-control">
+
                 </div>
-                <button class="btn btn-premium w-100">Réserver</button>
+                <input type="hidden" name="venue_id" value="{{ $venue->id }}">
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea type="text" name="description" class="form-control"></textarea>
+
+                </div>
+
+
+
+                <button class="btn btn-premium w-100" type="submit">Réserver</button>
             </form>
         </div>
     </div>
