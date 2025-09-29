@@ -40,6 +40,7 @@ class RegisteredUserController extends Controller
             'phone' => ['required']
         ]);
 
+      
 
         $user = User::create([
             'name' => $request->name,

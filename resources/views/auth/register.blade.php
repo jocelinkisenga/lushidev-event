@@ -1,55 +1,133 @@
-@extends("front.front")
-@section("content")
-<main class="py-5">
-    <div class="container container-max">
-        <h2>Inscription</h2>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S'Authentifier</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
 
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card p-4">
-                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                        <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#prest" type="button">Organisateur d'evenement</button></li>
+    <link rel="stylesheet" href="{{ asset("bootstrap/css/bootstrap.min.css") }}">
 
-                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#employ" type="button">Propriaitaire de salle </button></li>
+    <style>
+        body {
+            background-color: #0f0f0f;
+            color: #eee;
+            font-family: "Inter", sans-serif;
+        }
 
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="prest">
-                            <form method="Post" action="{{ route("register") }}">
-                                @csrf
-                                <div class="mb-3"><label class="form-label">Nom complet</label><input class="form-control" name="name" type="text"></div>
-                                <input type="hidden" name="role" value="2">
-                                <div class="mb-3"><label class="form-label">Email </label><input class="form-control" name="email" type="email" autocomplete="off"></div>
-                                <div class="mb-3"><label class="form-label">Telephone</label><input type="tel" class="form-control" name="phone"></div>
-                                <div class="mb-3"><label class="form-label">mot de passe</label><input class="form-control" name="password" type="password">
-                                <button class="btn btn-primary" type="submit">Créer un compte organisateur</button>
+        .auth-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 400px;
+            margin: auto;
+            margin-top: 5vh;
+        }
 
-                            </form>
+        .btn-premium {
+            background: linear-gradient(45deg, #d4af37, #ffdd55);
+            border: none;
+            color: #111;
+            font-weight: 600;
+        }
 
-                        </div>
-                        <div class="tab-pane fade" id="employ">
-                            <form method="Post" action="{{ route("register") }}">
-                                @csrf
-                                <div class="mb-3"><label class="form-label">Nom complet</label><input class="form-control" name="name" type="text"></div>
-                                <input type="hidden" name="role" value="3">
-                                <div class="mb-3"><label class="form-label">Email </label><input class="form-control" name="email" type="email" autocomplete="off"></div>
-                                <div class="mb-3"><label class="form-label">Telephone</label><input type="tel" class="form-control" name="phone"></div>
-                                <div class="mb-3"><label class="form-label">mot de passe</label><input class="form-control" name="password" type="password"></div>
+        input {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            color: #eee !important;
+        }
 
-                                <button class="btn btn-primary" type="submit">Créer compte propriaitaire</button>
-                            </form>
-                        </div>
+        input:focus {
+            border-color: #d4af37 !important;
+            box-shadow: none !important;
+        }
+
+        .nav-tabs .nav-link {
+            color: #aaa;
+            border: none;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: #fff;
+            background: none;
+            border-bottom: 2px solid #d4af37;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Carte Auth -->
+    <div class="auth-card">
+        <h2 class="text-center fw-bold mb-4">SalleBooking</h2>
+
+        <!-- Onglets -->
+        <ul class="nav nav-tabs justify-content-center mb-4" id="authTabs" role="tablist">
+
+            <li class="nav-item">
+                <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button">
+                    Inscription
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+
+
+            <!-- Inscription -->
+            <div class="tab-pane fade show active" id="register" role="tabpanel">
+
+                <form class="mb-3" action="{{ route('register') }}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label class="form-label">Nom complet</label>
+                        <input type="text" name="name" class="form-control" placeholder="Jean Dupont" required />
                     </div>
-                </div>
-                <a href="{{ route("login") }}" class=" mt-4" >Vous avez un compte? connectez-vous</a>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="exemple@mail.com" required />
+
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Telephone</label>
+                        <input type="tel" name="phone" class="form-control" placeholder="" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Mot de passe</label>
+                        <input type="password" name="password" class="form-control" placeholder="••••••••" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Type de compte</label>
+                        <select class="form-select" name="role" required>
+                            <option value="">Choisir...</option>
+                            <option value="2">Organisateur d'evenement</option>
+                            <option value="3">
+                                Propriétaire d'une salle
+                            </option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-premium w-100">
+                        Créer un compte
+                    </button>
+                </form>
+                <a href="{{ route("register") }}" class="text-warning small mt-4">vous avez un compte? connectez- vous ici</a>
 
             </div>
-
-
         </div>
-
     </div>
-</main>
 
+    <!-- Footer -->
+    <footer class="text-center mt-5">
+        <p class="text-secondary">
+            &copy; 2025 SalleBooking · Tous droits réservés
+        </p>
+    </footer>
+    <script src="{{ asset("bootstrap/js/bootstrap.min.js") }}" type="script"></script>
+    <script src="{{ asset("bootstrap/js/bootstrap.bundle.min.js") }}" type="script"></script>
 
-@endsection
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

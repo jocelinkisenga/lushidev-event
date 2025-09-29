@@ -10,7 +10,7 @@ class MainController extends Controller
 {
     public function index () {
 
-        $venues = Venue::whereAvaibility(false)->latest()->get();
+        $venues = Venue::whereAvaibility(false)->latest()->limit(6)->get();
         return view("front.main", compact("venues"));
     }
 

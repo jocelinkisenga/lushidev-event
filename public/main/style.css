@@ -1,0 +1,116 @@
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f0f0f;
+            color: #eee;
+        }
+
+        .navbar {
+            background: rgba(20, 20, 20, 0.95) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+                url('https://picsum.photos/900/500?blur=3') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+            border-radius: 0 0 2rem 2rem;
+        }
+
+        .btn-premium {
+            background: linear-gradient(45deg, #d4af37, #ffdd55);
+            border: none;
+            color: #111;
+            font-weight: 600;
+        }
+
+        .btn-premium:hover {
+            opacity: 0.9;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            color: #eee;
+            backdrop-filter: blur(6px);
+        }
+
+        .category-btn {
+            border-radius: 2rem;
+            padding: .5rem 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+                        background: linear-gradient(45deg, #d4af37, #ffdd55);
+                        color: #111;
+
+        }
+
+        .category-btn:hover {
+            background: linear-gradient(45deg, #f8f7f2, #ece8d5);
+            color: #111;
+        }
+
+        footer {
+            background: #111;
+            color: #aaa;
+            padding: 2rem 0;
+        }
+
+                    .card-stat {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 1rem;
+                padding: 1.5rem;
+                text-align: center;
+                backdrop-filter: blur(6px);
+            }
+            .card-stat h3 {
+                font-weight: bold;
+            }
+            .highlight-card {
+                background: linear-gradient(
+                    135deg,
+                    rgba(212, 175, 55, 0.1),
+                    rgba(255, 221, 85, 0.05)
+                );
+                border: 1px solid rgba(212, 175, 55, 0.3);
+                border-radius: 1rem;
+                padding: 2rem;
+            }
+            .btn-premium {
+                background: linear-gradient(45deg, #d4af37, #ffdd55);
+                border: none;
+                color: #111;
+                font-weight: 600;
+            }
+            .info-card {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 1rem;
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+            }
+                .info-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      backdrop-filter: blur(6px);
+    }
+    .carousel-inner img {
+      border-radius: 1rem;
+    }
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(20,20,20,0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
