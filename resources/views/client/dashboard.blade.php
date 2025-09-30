@@ -2,6 +2,7 @@
 @section("content")
 @php
     use \App\Models\Reservation;
+    use \App\Enums\ReservastionEnu;
 @endphp
 <!-- Header -->
 <section class="container my-5 text-center">
@@ -15,28 +16,23 @@
         <div class="col-6 col-md-3">
             <div class="card-stat">
                 <i class="bi bi-calendar-check text-success fs-2"></i>
-                <h3>h3>
+                <h3>{{ Reservation::whereStatus(ReservastionEnu::DONE)->count() }}</h3>
                 <p>Confirmées</p>
             </div>
         </div>
         <div class="col-6 col-md-3">
             <div class="card-stat">
                 <i class="bi bi-hourglass-split text-warning fs-2"></i>
-                <h3>2</h3>
+                <h3>{{ Reservation::whereStatus(ReservastionEnu::ONLINE)->count() }}</h3>
+
                 <p>À venir</p>
             </div>
         </div>
         <div class="col-6 col-md-3">
             <div class="card-stat">
-                <i class="bi bi-check2-circle text-info fs-2"></i>
-                <h3>5</h3>
-                <p>Terminées</p>
-            </div>
-        </div>
-        <div class="col-6 col-md-3">
-            <div class="card-stat">
                 <i class="bi bi-x-circle text-danger fs-2"></i>
-                <h3>1</h3>
+                <h3>{{ Reservation::whereStatus(ReservastionEnu::CANCELLED)->count() }}</h3>
+
                 <p>Annulées</p>
             </div>
         </div>
