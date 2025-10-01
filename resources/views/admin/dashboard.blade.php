@@ -1,5 +1,9 @@
 @extends("front.front")
 @section("content")
+ @php
+ use \App\Enums\ReservationEnu;
+ @endphp
+
 <!-- Header -->
 <section class="container my-5 text-center">
     <h1 class="fw-bold">Dashboard Propriétaire</h1>
@@ -55,7 +59,7 @@
     @endforeach
 
     <div class="text-center mt-4">
-        <a href="{{ route("dashboard.venues") }}" class="btn btn-premium" wire:navigate><i class="bi bi-plus-circle"></i> voir toutes les salles</a>
+        <a href="{{ route("admin.venues") }}" class="btn btn-premium" wire:navigate><i class="bi bi-plus-circle"></i> voir toutes les salles</a>
 
     </div>
 </section>
@@ -65,22 +69,33 @@
 <!-- Dernières réservations -->
 <section class="container my-5">
     <h4 class="mb-3">Dernières réservations reçues</h4>
+     @foreach ($latestBookings as $reservation)
+
     <div class="info-card">
         <div class="d-flex justify-content-between">
-            <span><strong>Salle Prestige – Paris</strong></span>
+            <span><strong>{{ $reservation->title }} </strong></span>
             <span class="text-success">Confirmée</span>
+                             @switch($reservation->status)
+                             @case(ReservationEnu::CANCELLED)
+                             <span class="status status-cancelled">Anullee</span>
+                             @break
+                             @case(ReservationEnu::DONE)
+                             <span class="status status-confirmed">Confirme</span>
+
+                             @break
+
+                             @default
+                             <span class="status status-pending">En cours</span>
+
+                             @endswitch
+
         </div>
-        <p class="text-secondary mb-0"><i class="bi bi-person"></i> Marie Dupont · <i class="bi bi-calendar"></i> 12 Oct 2025 · 💶 300€</p>
+        <p class="text-secondary mb-0"><i class="bi bi-person"></i> {{ $reservation->user->name }} · <i class="bi bi-calendar"></i> {{ $reservation->starts_at }} </p>
+
     </div>
-    <div class="info-card">
-        <div class="d-flex justify-content-between">
-            <span><strong>Salle Horizon – Marseille</strong></span>
-            <span class="text-warning">En attente</span>
-        </div>
-        <p class="text-secondary mb-0"><i class="bi bi-person"></i> Karim B. · <i class="bi bi-calendar"></i> 20 Oct 2025 · 💶 250€</p>
-    </div>
+    @endforeach
     <div class="text-center mt-4">
-        <a href="" class="btn btn-premium"><i class="bi bi-plus-circle"></i> voir plus</a>
+        <a href="{{ route("admin.bookings") }}" class="btn btn-premium" wire:navigate><i class="bi bi-plus-circle"></i> voir plus toutes les Reservations</a>
     </div>
 
 </section>

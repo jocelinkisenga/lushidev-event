@@ -44,7 +44,8 @@
 
 
          <div class="d-flex gap-2 mt-2">
-             <a href="{{ route("owner.bookings.detail",["bookingId" => $booking->id]) }}" class="btn btn-outline-light btn-sm" wire:navigate><i class="bi bi-eye"></i> Voir detail</a>
+             <a href="{{ route("admin.bookings.detail",["bookingId" => $booking->id]) }}" class="btn btn-outline-light btn-sm" wire:navigate><i class="bi bi-eye"></i> Voir detail</a>
+
 
          </div>
      </div>

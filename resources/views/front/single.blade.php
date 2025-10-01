@@ -29,6 +29,8 @@
     <h1 class="fw-bold">{{ $venue->title }}</h1>
     <p><i class="bi bi-geo-alt"></i> {{ $venue->location }} · 👥 {{ $venue->capacity }} pers. · 💶 {{ $venue->price }}$/jour</p>
     <p class="text-warning"><i class="bi bi-star-fill"></i> 4.8 (120 avis)</p>
+            <button class="btn btn-outline-warning"><i class="bi bi-chat-dots"></i> Contacter le proprietaire</button>
+
 </section>
 
 <!-- Description & équipements -->
@@ -86,7 +88,7 @@
 </section>
 
 <!-- Avis clients -->
-<section class="container my-5">
+{{-- <section class="container my-5">
     <h3 class="mb-4">Avis clients</h3>
     <div class="info-card mb-3">
         <p class="fw-bold"><i class="bi bi-person-circle"></i> Marie Dupont</p>
@@ -96,12 +98,13 @@
         <p class="fw-bold"><i class="bi bi-person-circle"></i> Karim B.</p>
         <p>"Parfait pour notre conférence, équipements modernes et staff disponible."</p>
     </div>
-</section>
+</section> --}}
 
 <!-- CTA Sticky -->
 <div class="sticky-cta d-md-none">
     <span class="fw-bold">300€/jour</span>
-    <button class="btn btn-premium">Réserver</button>
+            <button class="btn btn-premium"><i class="bi bi-chat-dots"></i> Contacter le proprietaire</button>
+
 </div>
 
 

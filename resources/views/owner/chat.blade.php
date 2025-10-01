@@ -1,4 +1,4 @@
 @extends("front.front")
 @section("content")
-@livewire("salles")
+@livewire("chat")
 @endsection

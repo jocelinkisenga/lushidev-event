@@ -3,9 +3,8 @@
         <a class="navbar-brand" href="/" wire:navigate>
             <img src="{{ asset("logo.png") }}" class="img-fluid rounded-circle" style="width:40px; height:40px" alt="logo laeken" />
             Laeken Consulting</a>
-        <button type="button" class="navbar-toggler navb" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navmenu" aria-expanded="false"
-        aria-label="Toggle navigation "><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navmenu" >
+        <button type="button" class="navbar-toggler navb" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation "><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navmenu">
             <ul class="navbar-nav ms-auto align-items-lg-center text-white">
                 <li class="nav-item"><a class="nav-link navbar-brand" style="color:white;" href="{{ route("venues") }}" wire:navigate>Les salles</a></li>
 
@@ -27,20 +26,14 @@
                 @endguest
                 @auth
                 @switch(Auth::user()->role)
-                    @case(2)
+                @case(2)
                 <li class="nav-item ms-3"><a class="btn bg-white" href="{{ route("client.dasboard") }}" wire:navigate>Dashboard</a></li>
-
-                        @break
-                        @case(3)
-<li class="nav-item ms-3"><a class="btn btn-primary" href="{{ route("owner.dasboard") }}" wire:navigate>Dashboard</a></li>
-
-                        @break
-
-                    @default
-<li class="nav-item ms-3"><a class="btn dashboardBtn" href="/dashboard-admin" wire:navigate>Dashboard</a></li>
-
-
-
+                @break
+                @case(3)
+                <li class="nav-item ms-3"><a class="btn bg-white" href="{{ route("owner.dasboard") }}" wire:navigate>Dashboard</a></li>
+                @break
+                @default
+                <li class="nav-item ms-3"><a class="btn bg-white" href="/dashboard-admin" wire:navigate>Dashboard</a></li>
                 @endswitch
                 <li class="nav-item ms-3">
                     <form action="{{ route("logout") }}" method="post">
