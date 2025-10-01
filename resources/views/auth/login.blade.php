@@ -80,7 +80,7 @@
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Email</label>
-                        <input type="email" name="input_type" class="form-control" placeholder="" required />
+                        <input type="text" name="input_type" class="form-control" placeholder="" required />
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Mot de passe</label>

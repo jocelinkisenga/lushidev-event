@@ -4,7 +4,7 @@ namespace App\Enums;
 
 use Illuminate\Validation\Rules\Enum;
 
-Enum ReservastionEnu {
+Enum ReservationEnu {
 
     const ONLINE = 0;
     const CANCELLED = 1;

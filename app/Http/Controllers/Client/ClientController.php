@@ -38,9 +38,10 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $bookingId)
     {
-        //
+        $booking = Reservation::findOrFail($bookingId);
+        return view("client.bookingDetail", compact("booking"));
     }
 
     /**

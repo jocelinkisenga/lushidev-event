@@ -2,7 +2,7 @@
 @section("content")
 @php
     use \App\Models\Reservation;
-    use \App\Enums\ReservastionEnu;
+    use \App\Enums\ReservationEnu;
 @endphp
 <!-- Header -->
 <section class="container my-5 text-center">
@@ -16,7 +16,7 @@
         <div class="col-6 col-md-3">
             <div class="card-stat">
                 <i class="bi bi-calendar-check text-success fs-2"></i>
-                <h3>{{ Reservation::whereStatus(ReservastionEnu::DONE)->whereUser_id(Auth::user()->id)->count() }}</h3>
+                <h3>{{ Reservation::whereStatus(ReservationEnu::DONE)->whereUser_id(Auth::user()->id)->count() }}</h3>
 
                 <p>Confirmées</p>
             </div>
@@ -24,7 +24,7 @@
         <div class="col-6 col-md-3">
             <div class="card-stat">
                 <i class="bi bi-hourglass-split text-warning fs-2"></i>
-                <h3>{{ Reservation::whereStatus(ReservastionEnu::ONLINE)->whereUser_id(Auth::user()->id)->count() }}</h3>
+                <h3>{{ Reservation::whereStatus(ReservationEnu::ONLINE)->whereUser_id(Auth::user()->id)->count() }}</h3>
 
 
                 <p>À venir</p>
@@ -33,7 +33,7 @@
         <div class="col-6 col-md-3">
             <div class="card-stat">
                 <i class="bi bi-x-circle text-danger fs-2"></i>
-                <h3>{{ Reservation::whereStatus(ReservastionEnu::CANCELLED)->whereUser_id(Auth::user()->id)->count() }}</h3>
+                <h3>{{ Reservation::whereStatus(ReservationEnu::CANCELLED)->whereUser_id(Auth::user()->id)->count() }}</h3>
 
 
                 <p>Annulées</p>
@@ -65,7 +65,21 @@
     <div class="info-card">
         <div class="d-flex justify-content-between">
             <span>Evenement : {{ $item->title }}</span>
-            <span class="text-warning">À venir</span>
+                             @switch($item->status)
+                             @case(ReservationEnu::CANCELLED)
+                             <span class="status status-cancelled">Anullee</span>
+                             @break
+                             @case(ReservationEnu::DONE)
+                             <span class="status status-confirmed">Confirme</span>
+
+                             @break
+
+                             @default
+                             <span class="status status-pending">En cours</span>
+
+                             @endswitch
+
+            {{-- <span class="text-warning">À venir</span> --}}
         </div>
         <p class="text-secondary mb-0">
             <i class="bi bi-calendar"></i> {{ $item->starts_at }} a {{ $item->ends_at }} · 💶 {{ $item->venue->price }} $
@@ -80,7 +94,7 @@
 <section class="container text-center my-5">
     <div class="d-grid gap-3 col-12 col-md-6 mx-auto">
         <a href="{{ route("venues") }}" class="btn btn-premium"><i class="bi bi-plus-circle" wire:navigate></i> Nouvelle réservation</a>
-        <a href="{{ route("client.reservations") }}" class="btn btn-outline-light"><i class="bi bi-journal-text"></i> Voir toutes mes
+        <a href="{{ route("client.reservations") }}" class="btn btn-outline-light" wire:navigate><i class="bi bi-journal-text"></i> Voir toutes mes
             réservations</a>
     </div>
 </section>

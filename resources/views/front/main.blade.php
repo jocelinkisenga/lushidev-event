@@ -1,11 +1,12 @@
 @extends("front.front")
 @section("title", 'Acceuil')
 @section("content")
-<!-- Navbar -->
+<section class="hero d-flex align-items-center" 
+style="background: linear-gradient(rgba(70, 65, 65, 0.6), rgba(66, 64, 64, 0.8)), url({{ asset("img/photos/unsplash-3.jpg") }}) center/cover no-repeat;">
 
 
-<!-- Hero -->
-<section class="hero d-flex align-items-center">
+
+
     <div class="container">
         <h1 class="fw-bold display-5">Trouvez la salle idéale</h1>
         <p class="lead">Un choix premium pour vos mariages, conférences et événements</p>

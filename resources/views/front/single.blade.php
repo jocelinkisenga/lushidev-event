@@ -5,12 +5,12 @@
     <div id="salleCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ asset("/storage/".$venue->image)  }}" style="height:400px"   class="d-block w-100  overflow-hidden" alt="Salle">
+                <img src="{{ asset("/storage/".$venue->image)  }}" style="height:400px" class="d-block w-100  overflow-hidden" alt="Salle">
             </div>
             @foreach ($venue->venue_images as $venue_image)
-                            <div class="carousel-item ">
-                                <img src="{{ asset("/storage/".$venue_image->image_path)  }}" style="height:400px" class="d-block w-100  overflow-hidden" alt="Salle">
-                            </div>
+            <div class="carousel-item ">
+                <img src="{{ asset("/storage/".$venue_image->image_path)  }}" style="height:400px" class="d-block w-100  overflow-hidden" alt="Salle">
+            </div>
 
             @endforeach
 
@@ -38,12 +38,12 @@
             <h3 class="text-warning">Description</h3>
             <p>{{ $venue->description }}</p>
             <h4 class="mt-4 text-warning">Équipements</h4>
-            <ul class="row list-unstyled">
+            <ul class="row">
                 @foreach ($venue->services as $service)
-                    <li class="col-6"><i class=""></i> {{ $service->nom }}</li>
+                <li class="col-6"><i class=""></i> {{ $service->nom }}</li>
 
                 @endforeach
-                
+
             </ul>
         </div>
     </div>

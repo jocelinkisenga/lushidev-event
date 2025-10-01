@@ -19,7 +19,8 @@
          </div>
          <p><i class="bi bi-calendar-check"></i> debut :  {{ $reservation->starts_at }} - fin : {{ $reservation->ends_at }}· 👥 {{ $reservation->quantity }} pers. · 💶 {{ $reservation->venue->price }} $</p>
          <div class="d-flex gap-2 mt-2">
-             <a href="details-reservation.html" class="btn btn-outline-light btn-sm"><i class="bi bi-eye"></i> Voir</a>
+             <a href="{{ route("client.bookings.detail", ["bookingId" => $reservation->id]) }}" class="btn btn-outline-warning " wire:navigate><i class="bi bi-eye"></i> Voir</a>
+
          </div>
      </div>
 

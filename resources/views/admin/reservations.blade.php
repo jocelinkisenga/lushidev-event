@@ -46,11 +46,6 @@
          <div class="d-flex gap-2 mt-2">
              <a href="{{ route("owner.bookings.detail",["bookingId" => $booking->id]) }}" class="btn btn-outline-light btn-sm" wire:navigate><i class="bi bi-eye"></i> Voir detail</a>
 
-             <a href="{{ route("owner.bookings.confirm",["bookingId" => $booking->id]) }}" class="btn btn-outline-success btn-sm" wire:navigate><i class="bi bi-x-circle"></i> confirmer</a>
-
-             <a href="{{ route("owner.bookings.cancel",["bookingId" => $booking->id]) }}" wire:navigate class="btn btn-outline-danger btn-sm"><i class="bi bi-x-circle"></i> Annuler</a>
-
-             <button class="btn btn-premium btn-sm"><i class="bi bi-download"></i> Facture</button>
          </div>
      </div>
 

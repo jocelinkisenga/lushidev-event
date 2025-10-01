@@ -41,7 +41,9 @@ Route::middleware("auth")->prefix("owner")->group(function(){
     Route::post("/venuesStore", [VenueController::class, "store"])->name("owner.venues.store");
     Route::get("bookings/{venueId}", [BookingController::class,"index"])->name("owner.bookings");
 Route::get("bookingsConfirm/{bookingId}", [BookingController::class,"confirm"])->name("owner.bookings.confirm");
-Route::get("bookingsCancel/{bookingId}", [BookingController::class,"cancel"])->name("owner.bookings.cancel");
+Route::get("booking/{bookingId}", [BookingController::class,"show"])->name("owner.bookings.detail");
+    Route::get("bookingCancel/{bookingId}", [BookingController::class, "show"])->name("owner.bookings.cancel");
+
 });
 
 
@@ -49,6 +51,7 @@ Route::get("bookingsCancel/{bookingId}", [BookingController::class,"cancel"])->n
 Route::middleware("auth")->prefix("client")->group(function(){
     Route::get("/dashboard", [ClientController::class, "index"])->name("client.dasboard");
     Route::get("/mesreservations", [ClientController::class, "reservations"])->name("client.reservations");
+    Route::get("bookingClient/{bookingId}", [ClientController::class, "show"])->name("client.bookings.detail");
 });
     // Route::get("/mesreservations",[ClientController::class,"reservations"])->name("client.reservations");
 

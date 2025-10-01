@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
-
     <div class="container container-max">
         <a class="navbar-brand" href="/" wire:navigate>
             <img src="{{ asset("logo.png") }}" class="img-fluid rounded-circle" style="width:40px; height:40px" alt="logo laeken" />
