@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\Owner\BookingController;
 use App\Http\Controllers\Owner\CategoryController;
 use App\Http\Controllers\Owner\OwnerDashboardController;
 use App\Http\Controllers\Owner\ProductController;
@@ -38,6 +39,9 @@ Route::middleware("auth")->prefix("owner")->group(function(){
     Route::get("/venues", [VenueController::class, "index"])->name("owner.venues");
     Route::get("/venuesCreate", [VenueController::class, "create"])->name("owner.venues.create");
     Route::post("/venuesStore", [VenueController::class, "store"])->name("owner.venues.store");
+    Route::get("bookings/{venueId}", [BookingController::class,"index"])->name("owner.bookings");
+Route::get("bookingsConfirm/{bookingId}", [BookingController::class,"confirm"])->name("owner.bookings.confirm");
+Route::get("bookingsCancel/{bookingId}", [BookingController::class,"cancel"])->name("owner.bookings.cancel");
 });
 
 

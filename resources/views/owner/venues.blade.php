@@ -27,7 +27,7 @@
         <p><i class="bi bi-calendar-check"></i> {{ $venue->capacity }} 👥pers. · 💶 {{ $venue->price }}</p>
 
         <div class="d-flex gap-2 mt-2">
-            <a href="details-reservation.html" class="btn btn-outline-light btn-sm"><i class="bi bi-eye"></i> Voir les reservations</a>
+            <a href="{{ route("owner.bookings",["venueId" => $venue->id]) }}" wire:navigate class="btn btn-outline-light btn-sm"><i class="bi bi-eye"></i> Voir les reservations</a>
             <button class="btn btn-outline-success btn-sm"><i class="bi bi-x-circle"></i> Editer</button>
             <button class="btn btn-premium btn-sm"><i class="bi bi-download"></i> Factures</button>
         </div>
