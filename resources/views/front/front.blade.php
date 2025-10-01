@@ -8,9 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset("bootstrap/css/bootstrap.min.css") }}">
     <link rel="stylesheet" href="{{ asset("main/style.css") }}">
+<link rel="stylesheet" href="{{ asset("front/vendor/fontawesome-free/css/all.min.css") }}">
 
     <!-- Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    @livewireStyles
 </head>
 <body>
 @include("partials.frontnav")
@@ -58,7 +60,8 @@
             </div>
         </div>
     </footer>
-
+@livewireScripts
+    <script rel="stylesheet" src="{{ asset("bootstrap/js/bootstrap.min.js") }}"></script>
 
 </body>
 

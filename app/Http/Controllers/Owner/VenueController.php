@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Owner;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Service;
 use App\Models\Venue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,8 @@ class VenueController extends Controller
      */
     public function index()
     {
-        return view("owner.venues");
+        $venues = Venue::whereUser_id(Auth::user()->id)->latest()->get();
+        return view("owner.venues", compact("venues"));
     }
 
     /**
@@ -23,7 +25,7 @@ class VenueController extends Controller
      */
     public function create()
     {
-        //
+        return view("owner.create");
     }
 
     /**
@@ -31,7 +33,41 @@ class VenueController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $imagePathPrincipale = $request->file('image')->store("uploads/main", "public");
+
+       $venue =  Venue::create([
+            'name' => $request->name,
+            'location' => $request->location,
+            'description' => $request->description,
+            'image' => $imagePathPrincipale,
+            'capacity' => $request->capacity,
+            'user_id' => Auth::user()->id,
+            'price' => $request->price,
+            'opening' => $request->opening,
+            'closing' => $request->closing
+        ]);
+
+        if($request->hasFile('images')){
+            foreach ($request->file('images') as  $image) {
+                $path = $image->store('uploads/autres','public');
+                $venue->venue_images()->create(['image_path' => $path]);
+            }
+        }
+
+        $services = array_map('trim', explode(',',$request->services));
+        $serviceIds = [];
+
+        foreach ($services as $service) {
+            if($service !== '') {
+                $srv = Service::firstOrCreate(['nom' => $service]);
+                $serviceIds [] = $srv->id;
+            }
+        }
+
+        $venue->services()->sync($serviceIds);
+
+        return redirect()->route('owner.dasboard');
     }
 
     /**

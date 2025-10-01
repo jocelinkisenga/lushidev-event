@@ -5,17 +5,15 @@
     <div id="salleCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ asset("/storage/".$venue->image)  }}" class="d-block w-100" alt="Salle">
-
+                <img src="{{ asset("/storage/".$venue->image)  }}" style="height:400px"   class="d-block w-100  overflow-hidden" alt="Salle">
             </div>
-            <div class="carousel-item">
-                <img src="{{ asset("/storage/".$venue->image)  }}" class="d-block w-100" alt="Salle">
+            @foreach ($venue->venue_images as $venue_image)
+                            <div class="carousel-item ">
+                                <img src="{{ asset("/storage/".$venue_image->image_path)  }}" style="height:400px" class="d-block w-100  overflow-hidden" alt="Salle">
+                            </div>
 
-            </div>
-            <div class="carousel-item">
-                <img src="{{ asset("/storage/".$venue->image)  }}" class="d-block w-100" alt="Salle">
+            @endforeach
 
-            </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#salleCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
@@ -37,14 +35,15 @@
 <section class="container my-5 row g-4">
     <div class="col-md-8">
         <div class="info-card">
-            <h3>Description</h3>
+            <h3 class="text-warning">Description</h3>
             <p>{{ $venue->description }}</p>
-            <h4 class="mt-4">Équipements</h4>
+            <h4 class="mt-4 text-warning">Équipements</h4>
             <ul class="row list-unstyled">
-                <li class="col-6"><i class="bi bi-wifi"></i> Wi-Fi</li>
-                <li class="col-6"><i class="bi bi-speaker"></i> Sonorisation</li>
-                <li class="col-6"><i class="bi bi-lightbulb"></i> Éclairage LED</li>
-                <li class="col-6"><i class="bi bi-people"></i> Chaises & tables</li>
+                @foreach ($venue->services as $service)
+                    <li class="col-6"><i class=""></i> {{ $service->nom }}</li>
+
+                @endforeach
+                
             </ul>
         </div>
     </div>

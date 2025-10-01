@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [App\Http\Controllers\MainController::class, "index"])->name('home');
 Route::get("/salle/{title}/{id}", [App\Http\Controllers\MainController::class, "show"])->name('salle.single');
+Route::get("venues/", [App\Http\Controllers\MainController::class, "venues"])->name('venues');
 
 Route::middleware("auth")->group(function () {
     Route::post("reserve",[ReservationController::class,"store"])->name("store.reservation");
@@ -30,18 +31,23 @@ Route::middleware("auth")->group(function () {
 });
 
 // Routes for owner
-Route::prefix("owner")->group(function(){
+Route::middleware("auth")->prefix("owner")->group(function(){
         Route::get("/dashboard",[OwnerDashboardController::class,"index"])->name("owner.dasboard");
         Route::get("/categories",[CategoryController::class,"index"])->name("owner.categories");
     Route::get("/products", [ProductController::class, "index"])->name("owner.products");
     Route::get("/venues", [VenueController::class, "index"])->name("owner.venues");
+    Route::get("/venuesCreate", [VenueController::class, "create"])->name("owner.venues.create");
+    Route::post("/venuesStore", [VenueController::class, "store"])->name("owner.venues.store");
 });
 
 
 //Routes for clients
-Route::prefix("client")->group(function(){
-        Route::get("/dashboard",[ClientController::class,"index"])->name("client.dasboard");
+Route::middleware("auth")->prefix("client")->group(function(){
+    Route::get("/dashboard", [ClientController::class, "index"])->name("client.dasboard");
+    Route::get("/mesreservations", [ClientController::class, "reservations"])->name("client.reservations");
 });
+    // Route::get("/mesreservations",[ClientController::class,"reservations"])->name("client.reservations");
+
 
 require __DIR__ . '/admin.php';
 require __DIR__ . '/auth.php';

@@ -46,13 +46,13 @@
 
         <div class="col-md-4">
             <div class="card shadow-sm">
-                <img src="{{ asset("/storage/".$venue->image)  }}" class="card-img-top" alt="Salle">
+                <img src="{{ asset("/storage/".$venue->image)  }}" class="card-img-top overflow-hidden" alt="Salle" style="height:200px;">
 
                 <div class="card-body">
                     <h5 class="card-title">{{ $venue->name }}</h5>
 
                     <p class="card-text"><i class="bi bi-geo-alt"></i> Paris · 👥 120 pers. · 💶 300€/jour</p>
-                    <a href="{{ route("salle.single",['title' => $venue->name, "id" => $venue->id]) }}" class="btn btn-premium w-100">Voir détails</a>
+                    <a href="{{ route("salle.single",['title' => $venue->name, "id" => $venue->id]) }}" class="btn btn-premium w-100" wire:navigate>Voir détails</a>
 
 
 

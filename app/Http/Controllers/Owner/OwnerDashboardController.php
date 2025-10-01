@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Owner;
 
 use App\Http\Controllers\Controller;
+use App\Models\Venue;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OwnerDashboardController extends Controller
 {
@@ -12,7 +14,9 @@ class OwnerDashboardController extends Controller
      */
     public function index()
     {
-        return view("admin.dashboard");
+        $latestVenues = Venue::whereUser_id(Auth::user()->id)->limit(4)->get();
+
+        return view("owner.dashboard", compact("latestVenues"));
     }
 
     /**

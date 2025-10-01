@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
@@ -18,9 +20,11 @@ class ClientController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function reservations()
     {
-        //
+        $reservations = Reservation::whereUser_id(Auth::user()->id)->latest()->get();
+
+        return view("client.reservations", compact("reservations"));
     }
 
     /**
