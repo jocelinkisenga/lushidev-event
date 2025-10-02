@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ChatController extends Controller
 {
     public function create ($venueId) {
-        $conversation = Conversation::create(['venue_id' => $venueId]);
-        return view("owner.chat", ['conversationId' => $conversation->id]);
+
+        return view("owner.chat", ['venueId' => $venueId]);
     }
 }

@@ -2,6 +2,6 @@
 @section("content")
 <section class="container">
 
-@livewire("chat", ["conversationId" => $conversationId])
+@livewire("chat", ["venueId" => $venueId])
 </section>
 @endsection

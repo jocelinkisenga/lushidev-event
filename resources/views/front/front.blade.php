@@ -16,7 +16,12 @@
 </head>
 <body>
 @include("partials.frontnav")
+<div class="container py-5">
+
     @yield('content')
+
+
+</div>
 
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -41,7 +46,7 @@
         </div>
     </div>
 </div>
-    <footer>
+    <footer class=" footer sticky">
         <div class="container text-center">
             <p class="mb-2">&copy; 2025 SalleBooking. Tous droits réservés.</p>
             <div>

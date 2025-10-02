@@ -66,7 +66,7 @@
 
 
 <!-- Dernières réservations -->
-<section class="container my-5">
+{{-- <section class="container my-5">
     <h4 class="mb-3">Dernières réservations reçues</h4>
     <div class="info-card">
         <div class="d-flex justify-content-between">
@@ -86,6 +86,6 @@
         <a href="" class="btn btn-premium"><i class="bi bi-plus-circle"></i> voir plus</a>
     </div>
 
-</section>
+</section> --}}
 
 @endsection

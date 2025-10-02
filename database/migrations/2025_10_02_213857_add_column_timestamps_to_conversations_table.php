@@ -11,12 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('event_invitations', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId("event_id")->constrained()->cascadeOnDelete();
-            $table->text("identifiant")->nullable();
-            $table->string("names")->nullable();
-            $table->boolean("confirmed")->default(false);
+        Schema::table('conversations', function (Blueprint $table) {
             $table->timestamps();
         });
     }
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('event_invitations');
+        Schema::table('conversations', function (Blueprint $table) {
+            //
+        });
     }
 };

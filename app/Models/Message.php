@@ -12,11 +12,14 @@ class Message extends Model
     protected $fillable = [
         'conversation_id',
         'sender_id',
-        'message'
+        'messages'
     ];
 
     public function sender () {
+        return $this->belongsTo(User::class,'sender_id');
+    }
+    public function conversation ()
+    {
         return $this->belongsTo(User::class);
     }
-
 }
