@@ -5,7 +5,7 @@
     use \App\Enums\ReservationEnu;
 @endphp
 <!-- Header -->
-<section class="container my-5 text-center">
+<section class="container mt-20 my-5  text-center">
     <h1 class="fw-bold">Bienvenue, {{ Auth::user()->name }} 👋</h1>
     <p class="text-secondary">Voici un aperçu de vos réservations</p>
 </section>

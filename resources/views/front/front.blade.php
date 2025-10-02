@@ -17,9 +17,7 @@
 <body>
 @include("partials.frontnav")
     @yield('content')
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
+
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
@@ -55,6 +53,25 @@
     </footer>
 @livewireScripts
     <script rel="stylesheet" src="{{ asset("bootstrap/js/bootstrap.min.js") }}"></script>
+  <script>
+      // Charger le thème stocké
+      if (localStorage.getItem("theme") === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+      }
+
+      // Fonction de bascule
+      function toggleTheme() {
+          let current = document.documentElement.getAttribute("data-theme");
+          if (current === "dark") {
+              document.documentElement.setAttribute("data-theme", "light");
+              localStorage.setItem("theme", "light");
+          } else {
+              document.documentElement.setAttribute("data-theme", "dark");
+              localStorage.setItem("theme", "dark");
+          }
+      }
+
+  </script>
 
 </body>
 
