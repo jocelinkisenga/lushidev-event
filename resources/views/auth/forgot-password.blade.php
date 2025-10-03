@@ -67,7 +67,7 @@
         <ul class="nav nav-tabs justify-content-center mb-4" id="authTabs" role="tablist">
             <li class="nav-item">
                 <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button">
-                    Connexion
+                    Reinitialiser le mot d passe
                 </button>
             </li>
 
@@ -76,29 +76,23 @@
         <div class="tab-content">
             <!-- Connexion -->
             <div class="tab-pane fade show active" id="login" role="tabpanel">
-                <form class="mb-3" action="{{ route("login") }}" method="POST">
+                <form class="mb-3" action="{{ route("password.email") }}" method="POST">
+
                     @csrf
                     <div class="mb-3">
-                        <label class="form-label">Email</label>
-                        <input type="text" name="input_type" class="form-control" placeholder="" required />
+                        <label class="form-label">Email </label>
+                        <input type="email" name="email" class="form-control" placeholder="" required />
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Mot de passe</label>
-                        <input type="password"  name="password" class="form-control" placeholder="••••••••" required />
-                    </div>
-                    <div class="d-flex justify-content-between mb-3">
-                        <div>
-                            <input type="checkbox" id="remember" />
-                            <label for="remember" class="ms-1">Se souvenir de moi</label>
-                        </div>
-                        <a href="{{ route("password.request") }}" class="text-warning small">Mot de passe oublié ?</a>
-                    </div>
+
+
                     <button type="submit" class="btn btn-premium w-100">
-                        Se connecter
+                        reinitialiser
                     </button>
                 </form>
 
-                <a href="{{ route("register") }}" class="text-warning small mt-4">vous n'avez pas de compte, creer ici ?</a>
+                @error("email")
+                <span class="text-danger ml-2">{{ $message }}</span>
+                @enderror
 
 
             </div>
@@ -108,10 +102,12 @@
         </div>
     </div>
 
-    <script  src="{{ asset("bootstrap/js/bootstrap.min.js") }}" type="script"></script>
+    <!-- Footer -->
+
+    </footer>
+    <script src="{{ asset("bootstrap/js/bootstrap.min.js") }}" type="script"></script>
     <script src="{{ asset("bootstrap/js/bootstrap.bundle.min.js") }}" type="script"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

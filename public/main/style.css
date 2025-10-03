@@ -104,8 +104,8 @@ footer {
 }
 
 .card-stat {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
     border-radius: 1rem;
     padding: 1.5rem;
     text-align: center;
@@ -120,26 +120,26 @@ footer {
         rgba(212, 175, 55, 0.1),
         rgba(255, 221, 85, 0.05)
     );
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid var(--color-border);
     border-radius: 1rem;
     padding: 2rem;
 }
 .btn-premium {
     background: linear-gradient(45deg, #d4af37, #ffdd55);
     border: none;
-    color: #111;
+    color: var(--color-text);
     font-weight: 600;
 }
 .info-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
     border-radius: 1rem;
     padding: 1.5rem;
     margin-bottom: 1rem;
 }
 .info-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
     border-radius: 1rem;
     padding: 1.5rem;
     backdrop-filter: blur(6px);
@@ -152,7 +152,7 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(20, 20, 20, 0.95);
+    background: var(--color-bg);
     backdrop-filter: blur(10px);
     padding: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -162,20 +162,20 @@ footer {
 }
 
 .info-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
     border-radius: 1rem;
     padding: 2rem;
     backdrop-filter: blur(6px);
 }
 .success-icon {
     font-size: 4rem;
-    color: #d4af37;
+    color: var(--color-text);
 }
 .code-resa {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #ffdd55;
+    color:var(--color-primary);
     letter-spacing: 2px;
 }
 
@@ -189,8 +189,8 @@ footer {
       border-radius: 0 0 1.5rem 1.5rem;
     }
     .filter-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
       border-radius: 1rem;
       padding: 1.5rem;
       backdrop-filter: blur(6px);
@@ -207,10 +207,10 @@ footer {
       box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
     }
     .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
       border-radius: 1rem;
-      color: #eee;
+      color: var(--color-text);
       transition: all 0.3s ease;
     }
     .card:hover {
@@ -219,17 +219,17 @@ footer {
     }
     .pagination .page-link {
       background: transparent;
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #eee;
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
     }
     .pagination .page-link:hover {
-      background: #d4af37;
-      color: #111;
+      background: var(--color-primary);
+      color: var(--color-text);
     }
 
         .info-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
       border-radius: 1rem;
       padding: 1.5rem;
       backdrop-filter: blur(6px);
@@ -254,25 +254,25 @@ footer {
 
     /* create */
     input, textarea, select {
-      background: rgba(255,255,255,0.05) !important;
-      border: 1px solid rgba(255,255,255,0.15) !important;
+      background: var(--color-bg) !important;
+      border: 1px solid var(--color-border) !important;
       color: #eee !important;
     }
     input:focus, textarea:focus, select:focus {
-      border-color: #d4af37 !important;
+      border-color: var(--color-border) !important;
       box-shadow: none !important;
     }
 /* client */
     .card-custom {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
       border-radius: 1rem;
       padding: 1.5rem;
       margin-bottom: 1.5rem;
     }
     .highlight {
       background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(255,221,85,0.08));
-      border: 1px solid rgba(212,175,55,0.3);
+      border: 1px solid var(--color-border);
     }
 
 
@@ -420,7 +420,7 @@ footer {
 
     /* navbar new*/
     .navbar {
-      background-color: #1c1c1c;
+      background-color: var(--color-bg);
     }
     .nav-link {
       color: #bbb;

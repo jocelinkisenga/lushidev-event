@@ -53,7 +53,9 @@
       <div class="container-fluid">
           <!-- Logo -->
           <a class="navbar-brand fw-bold text-white" href="/">
-              <i class=""></i> L-Event
+              <i class=""></i>
+              <h1>L-Event</h1>
+
           </a>
 
           <!-- Menu -->
@@ -66,26 +68,28 @@
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="{{ route("venues") }}" wire:navigate>
-                      <i class="fa fa-building text-warning"></i>
+                      <i class="fa fa-building "></i>
                       <span class="nav-text">Salles</span>
                   </a>
               </li>
               <li class="nav-item ml-4">
                   <a class="nav-link" href="#">
-                      <i class="fa fa-info-circle text-warning"></i>
+                      <i class="fa fa-info-circle "></i>
 
                       <span class="nav-text">À propos</span>
                   </a>
               </li>
-              <li class="nav-item m-lg-2">
-                      <a class="" onclick="toggleTheme()"> <i class="fa fa-moon"></i></a>
+              <li class="nav-item ml-4">
+
+                      <a class="nav-link" onclick="toggleTheme()"> <i class="fa fa-moon"></i> Mode</a>
+
 
               </li>
           </ul>
 
           <!-- Dropdown utilisateur -->
           <div class="dropdown">
-              <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false">
+              <a  class="d-flex align-items-center text-decoration-none dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="fa fa-user-circle fs-4"></i>
                   <span class="nav-text">Mon compte</span>
               </a>
@@ -96,7 +100,7 @@
                       <hr class="dropdown-divider">
                   </li>
                  @guest
-                 <li class=""><a style="color:white;" class="btn btn-premium py-md-3 px-md-5 me-3 animated slideInLeft" href="{{ route("login") }}" wire:navigate>Se connecter</a></li>
+                 <li class=""><a style="color:white;" class="btn btn-premium m-2 animated slideInLeft" href="{{ route("login") }}" wire:navigate>Se connecter</a></li>
 
 
 
@@ -105,18 +109,22 @@
                  @auth
                  @switch(Auth::user()->role)
                  @case(2)
-                 <li class=""><a class="btn bg-white" href="{{ route("client.dasboard") }}" wire:navigate>Dashboard</a></li>
+                 <li class="dropdown-item"><a class="btn bg-white btn-sm m-2" href="{{ route("client.dasboard") }}" wire:navigate>Dashboard</a></li>
+
                  @break
                  @case(3)
-                 <li class=""><a class="btn bg-white" href="{{ route("owner.dasboard") }}" wire:navigate>Dashboard</a></li>
+                 <li class="dropdown-item"><a class="btn bg-white" href="{{ route("owner.dasboard") }}" wire:navigate>Dashboard</a></li>
+
                  @break
                  @default
-                 <li class=""><a class="btn bg-white" href="/dashboard-admin" wire:navigate>Dashboard</a></li>
+                 <li class="dropdown-item"><a class="btn bg-white" href="/dashboard-admin" wire:navigate>Dashboard</a></li>
+
                  @endswitch
-                 <li class="">
+                 <li class="dropdown-item">
+
                      <form action="{{ route("logout") }}" method="post">
                          @csrf
-                         <button class="btn btn-danger">se deconnecter</button>
+                         <button class="btn btn-danger btn-sm">se deconnecter</button>
 
                      </form>
                  </li>

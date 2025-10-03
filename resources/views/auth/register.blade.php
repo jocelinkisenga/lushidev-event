@@ -61,7 +61,7 @@
 <body>
     <!-- Carte Auth -->
     <div class="auth-card">
-        <h2 class="text-center fw-bold mb-4">SalleBooking</h2>
+        <h2 class="text-center fw-bold mb-4">L-Event</h2>
 
         <!-- Onglets -->
         <ul class="nav nav-tabs justify-content-center mb-4" id="authTabs" role="tablist">
@@ -113,7 +113,7 @@
                         Créer un compte
                     </button>
                 </form>
-                <a href="{{ route("register") }}" class="text-warning small mt-4">vous avez un compte? connectez- vous ici</a>
+                <a href="{{ route("login") }}" class="text-warning small mt-4">vous avez un compte? connectez- vous ici</a>
 
             </div>
         </div>
