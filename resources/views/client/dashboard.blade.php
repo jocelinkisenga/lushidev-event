@@ -44,7 +44,7 @@
 </section>
 
 <!-- Prochaine réservation -->
-<section class="container my-5">
+{{-- <section class="container my-5">
     <div class="highlight-card">
         <h4>
             <i class="bi bi-calendar-event"></i> Votre prochaine
@@ -57,7 +57,7 @@
         </p>
         <a href="details-reservation.html" class="btn btn-premium mt-2">Voir détails</a>
     </div>
-</section>
+</section> --}}
 
 <!-- Dernières réservations -->
 <section class="container my-5">

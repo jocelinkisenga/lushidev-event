@@ -11,7 +11,8 @@ use \App\Enums\ReservationEnu;
         <p class="text-secondary mb-1"><i class="bi bi-geo-alt"></i> {{ $booking->venue->location }}</p>
         <p class="text-secondary mb-1"><i class="bi bi-people"></i> Capacité : {{ $booking->venue->capacity }} personnes</p>
 
-        <img src="https://via.placeholder.com/600x300" alt="{{ $booking->venue->name }}" class="img-fluid rounded mt-2">
+        <img src="{{ asset("/storage/".$booking->venue->image)  }}" alt="{{ $booking->venue->name }}" class="img-fluid rounded mt-2">
+
 
     </div>
 </section>
@@ -73,7 +74,7 @@ use \App\Enums\ReservationEnu;
             <a href="{{ route('owner.bookings.confirm', ["bookingId" => $booking->id]) }}" wire:navigate class="btn btn-premium"><i class="bi bi-check2-circle"></i> Confirmer</a>
         <a href="{{ route('owner.bookings.cancel', ["bookingId" => $booking->id]) }}" wire:navigate class="btn btn-outline-danger"><i class="bi bi-x-circle"></i> Annuler</a>
         @endif --}}
-        <button class="btn btn-outline-warning"><i class="bi bi-chat-dots"></i> Contacter le proprietaire</button>
+        <a href="{{ route("chat.create",["venueId" => $booking->venue->id]) }}" class="btn btn-outline-warning" wire:navigate><i class="bi bi-chat-dots"></i> Contacter le proprietaire</a>
     </div>
 </section>
 
