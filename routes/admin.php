@@ -1,10 +1,7 @@
 <?php
-use App\Http\Controllers\Admin\AdminCandidateController;
-use App\Http\Controllers\Admin\AdminCompanController;
+
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\ConfirmCandidateController;
-use App\Http\Controllers\JobController;
+
 use App\Http\Controllers\Owner\CategoryController;
 use App\Http\Controllers\Owner\ProductController;
 use Illuminate\Support\Facades\Route;
