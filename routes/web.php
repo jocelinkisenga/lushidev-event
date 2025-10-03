@@ -35,10 +35,8 @@ Route::middleware("auth")->group(function () {
 });
 
 // Routes for owner
-Route::middleware("auth")->prefix("owner")->group(function () {
+Route::middleware(["auth", "role:3","role:1"])->prefix("owner")->group(function () {
     Route::get("/dashboard", [OwnerDashboardController::class, "index"])->name("owner.dasboard");
-    Route::get("/categories", [CategoryController::class, "index"])->name("owner.categories");
-    Route::get("/products", [ProductController::class, "index"])->name("owner.products");
     Route::get("/venues", [VenueController::class, "index"])->name("owner.venues");
     Route::get("/venuesCreate", [VenueController::class, "create"])->name("owner.venues.create");
     Route::post("/venuesStore", [VenueController::class, "store"])->name("owner.venues.store");
@@ -49,7 +47,7 @@ Route::middleware("auth")->prefix("owner")->group(function () {
 
 
 //Routes for clients
-Route::middleware("auth")->prefix("client")->group(function () {
+Route::middleware(["auth", "role:2", "role:1"])->prefix("client")->group(function () {
     Route::get("/dashboard", [ClientController::class, "index"])->name("client.dasboard");
     Route::get("/mesreservations", [ClientController::class, "reservations"])->name("client.reservations");
     Route::get("bookingClient/{bookingId}", [ClientController::class, "show"])->name("client.bookings.detail");

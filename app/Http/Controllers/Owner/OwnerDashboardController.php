@@ -9,12 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class OwnerDashboardController extends Controller
 {
+    public $countBookings;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $latestVenues = Venue::whereUser_id(Auth::user()->id)->limit(4)->get();
+        $latestVenues = Venue::whereUser_id(Auth::user()->id)->with("reservations")->limit(4)->get();
+
+
 
         return view("owner.dashboard", compact("latestVenues"));
     }

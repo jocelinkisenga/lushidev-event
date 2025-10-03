@@ -16,6 +16,7 @@
 </head>
 <body>
 @include("partials.frontnav")
+
 <div class="container py-5">
 
     @yield('content')
@@ -23,29 +24,7 @@
 
 </div>
 
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Voulez-vous quitter ?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">cliquer sur se deconnecter pour quitter la session</div>
-            <div class="modal-footer">
-                <form action="{{ route("logout") }}" method="POST">
-                    @csrf
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <button class="btn btn-primary" type="submit">Se deconnecter</button>
 
-                </form>
-
-            </div>
-        </div>
-    </div>
-</div>
     <footer class=" footer sticky">
         <div class="container text-center">
             <p class="mb-2">&copy; 2025 SalleBooking. Tous droits réservés.</p>

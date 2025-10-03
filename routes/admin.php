@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ConfirmCandidateController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\Owner\CategoryController;
+use App\Http\Controllers\Owner\ProductController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,4 +19,6 @@ Route::get("dashboard-admin", [AdminController::class,"index"])->name("dashboard
 
     Route::get("adminActive/{venueId}", [AdminController::class, "active"])->name(name: "active.venue");
         Route::get("adminDEActive/{venueId}", [AdminController::class, "deactive"])->name("deactive.venue");
+    Route::get("/categories", [CategoryController::class, "index"])->name("owner.categories");
+    Route::get("/products", [ProductController::class, "index"])->name("owner.products");
 });

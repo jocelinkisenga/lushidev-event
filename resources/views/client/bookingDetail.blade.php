@@ -74,7 +74,14 @@ use \App\Enums\ReservationEnu;
             <a href="{{ route('owner.bookings.confirm', ["bookingId" => $booking->id]) }}" wire:navigate class="btn btn-premium"><i class="bi bi-check2-circle"></i> Confirmer</a>
         <a href="{{ route('owner.bookings.cancel', ["bookingId" => $booking->id]) }}" wire:navigate class="btn btn-outline-danger"><i class="bi bi-x-circle"></i> Annuler</a>
         @endif --}}
+
+        @if(Auth::user()->role != \App\Enums\RoleEnum::EMPLOYEUR)
         <a href="{{ route("chat.create",["venueId" => $booking->venue->id]) }}" class="btn btn-outline-warning" wire:navigate><i class="bi bi-chat-dots"></i> Contacter le proprietaire</a>
+        @else
+        <a href="{{ route("chat.create",["venueId" => $booking->venue->id]) }}" class="btn btn-outline-warning" wire:navigate><i class="bi bi-chat-dots"></i> Contacter le client</a>
+
+        @endif
+
     </div>
 </section>
 

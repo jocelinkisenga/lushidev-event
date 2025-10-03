@@ -71,7 +71,7 @@
 
 
 @endif
-        <button class="btn btn-outline-warning"><i class="bi bi-chat-dots"></i> Contacter le client</button>
+        <a href="{{ route("chat.create",["venueId" => $booking->venue->id]) }}" class="btn btn-outline-warning"><i class="bi bi-chat-dots"></i> Contacter le client</a>
     </div>
 </section>
 
