@@ -1,4 +1,7 @@
 @extends("front.front")
 @section("content")
-@livewire("chat")
+<section class="container">
+
+@livewire("chat", ["venueId" => $venueId])
+</section>
 @endsection

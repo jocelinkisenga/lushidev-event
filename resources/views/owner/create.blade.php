@@ -33,6 +33,17 @@
                 </div>
             </div>
         </div>
+        <div class="mb-3">
+            <label class="form-label">Choisir une categorie</label>
+            <select class="form-select" required name="category_id">
+                <option value="">Choisir...</option>
+                @foreach (\App\Models\Category::all() as $item)
+                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+
+                @endforeach
+            </select>
+        </div>
+
 
         <!-- Description -->
         <div class="card-custom">
@@ -48,13 +59,13 @@
 
 
         </div>
-                <div class="card-custom">
-                    <h4><i class="bi bi-image"></i>image principale</h4>
-                    <div class="mt-3">
-                        <input type="file" class="form-control" name="image" accept="images/*">
-                        <small class="text-secondary">Formats acceptés : JPG, PNG (max 5 Mo)</small>
-                    </div>
-                </div>
+        <div class="card-custom">
+            <h4><i class="bi bi-image"></i>image principale</h4>
+            <div class="mt-3">
+                <input type="file" class="form-control" name="image" accept="images/*">
+                <small class="text-secondary">Formats acceptés : JPG, PNG (max 5 Mo)</small>
+            </div>
+        </div>
 
 
         <!-- Photos -->

@@ -29,6 +29,6 @@ class ReservationController extends Controller
 
     public function send ( $reservationId) {
         $reservation = Reservation::with("venue")->first();
-        return view("front.confirmation", compact("reservation"));
+        return view("client.bookingsent", compact("reservation"));
     }
 }

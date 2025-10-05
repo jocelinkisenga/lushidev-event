@@ -12,7 +12,8 @@
         <div class="col-6 col-md-3">
             <div class="card-stat">
                 <i class="bi bi-house-door fs-2 text-warning"></i>
-                <h3>5</h3>
+                <h3>{{ \App\Models\Venue::count() }}</h3>
+
                 <p>Salles actives</p>
             </div>
         </div>
@@ -20,7 +21,7 @@
             <div class="card-stat">
                 <i class="bi bi-calendar-check fs-2 text-success"></i>
                 <h3>12</h3>
-                <p>Réservations ce mois</p>
+                <p>Réservations</p>
             </div>
         </div>
         <div class="col-6 col-md-3">
@@ -51,7 +52,8 @@
         <span>{{ $venue->name }} – {{ $venue->location }}</span>
         <div class="btn-group">
             <button class="btn btn-outline-light btn-sm"><i class="bi bi-pencil"></i> Éditer</button>
-            <button class="btn btn-outline-success btn-sm"><i class="bi bi-x-circle"></i> voir plus</button>
+            <a href="{{ route("owner.bookings",["venueId" => $venue->id]) }}" class="btn btn-outline-success btn-sm" wire:navigate><i class="bi bi-x-circle"></i> voir plus</a>
+
         </div>
     </div>
 
@@ -66,7 +68,7 @@
 
 
 <!-- Dernières réservations -->
-<section class="container my-5">
+{{-- <section class="container my-5">
     <h4 class="mb-3">Dernières réservations reçues</h4>
     <div class="info-card">
         <div class="d-flex justify-content-between">
@@ -86,6 +88,6 @@
         <a href="" class="btn btn-premium"><i class="bi bi-plus-circle"></i> voir plus</a>
     </div>
 
-</section>
+</section> --}}
 
 @endsection

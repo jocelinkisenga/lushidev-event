@@ -9,43 +9,30 @@
     <link rel="stylesheet" href="{{ asset("bootstrap/css/bootstrap.min.css") }}">
     <link rel="stylesheet" href="{{ asset("main/style.css") }}">
 <link rel="stylesheet" href="{{ asset("front/vendor/fontawesome-free/css/all.min.css") }}">
+<link rel="stylesheet" href="{{ asset('vendor/flasher/flasher.min.css') }}">
 
     <!-- Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     @livewireStyles
 </head>
 <body>
+    @flasher_render()
+    @if(!Route::is('login','register'))
 @include("partials.frontnav")
+    @endif
+
+
+<div class="container py-5">
+
     @yield('content')
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Voulez-vous quitter ?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">cliquer sur se deconnecter pour quitter la session</div>
-            <div class="modal-footer">
-                <form action="{{ route("logout") }}" method="POST">
-                    @csrf
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <button class="btn btn-primary" type="submit">Se deconnecter</button>
 
-                </form>
 
-            </div>
-        </div>
-    </div>
 </div>
-    <footer>
+
+
+    <footer class=" footer mt-auto mb-0">
         <div class="container text-center">
-            <p class="mb-2">&copy; 2025 SalleBooking. Tous droits réservés.</p>
+            <p class="mb-2">&copy; 2025 L-Event. Tous droits réservés.</p>
             <div>
                 <a href="#" class="text-light me-2"><i class="bi bi-facebook"></i></a>
                 <a href="#" class="text-light me-2"><i class="bi bi-instagram"></i></a>
@@ -55,7 +42,26 @@
     </footer>
 @livewireScripts
     <script rel="stylesheet" src="{{ asset("bootstrap/js/bootstrap.min.js") }}"></script>
+  <script>
+      // Charger le thème stocké
+      if (localStorage.getItem("theme") === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+      }
 
+      // Fonction de bascule
+      function toggleTheme() {
+          let current = document.documentElement.getAttribute("data-theme");
+          if (current === "dark") {
+              document.documentElement.setAttribute("data-theme", "light");
+              localStorage.setItem("theme", "light");
+          } else {
+              document.documentElement.setAttribute("data-theme", "dark");
+              localStorage.setItem("theme", "dark");
+          }
+      }
+
+  </script>
+<script type="script" src="{{ asset("vendor/flasher.min.js") }}"></script>
 </body>
 
 </html>

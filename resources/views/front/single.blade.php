@@ -28,8 +28,9 @@
 <section class="container my-4">
     <h1 class="fw-bold">{{ $venue->title }}</h1>
     <p><i class="bi bi-geo-alt"></i> {{ $venue->location }} · 👥 {{ $venue->capacity }} pers. · 💶 {{ $venue->price }}$/jour</p>
-    <p class="text-warning"><i class="bi bi-star-fill"></i> 4.8 (120 avis)</p>
-            <button class="btn btn-outline-warning"><i class="bi bi-chat-dots"></i> Contacter le proprietaire</button>
+    <p class="text-warning"><i class="bi bi-star-fill"></i>  ( avis)</p>
+            <a href="{{ route("chat.create", ["venueId" => $venue->id]) }}" class="btn btn-outline-warning" wire:navigate><i class="bi bi-chat-dots"></i> Contacter le proprietaire</a>
+
 
 </section>
 
@@ -103,7 +104,8 @@
 <!-- CTA Sticky -->
 <div class="sticky-cta d-md-none">
     <span class="fw-bold">300€/jour</span>
-            <button class="btn btn-premium"><i class="bi bi-chat-dots"></i> Contacter le proprietaire</button>
+            <a href="{{ route("chat.create",["venueId" => $venue->id]) }}" class="btn btn-premium"><i class="bi bi-chat-dots"></i> Contacter le proprietaire</a>
+
 
 </div>
 

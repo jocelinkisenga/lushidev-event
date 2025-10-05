@@ -10,7 +10,7 @@
             <div class="col-6 col-lg-6 col-xxl-9 d-flex">
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#create">
+                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#create">
                     Ajouter une salle <span> <i class="align-middle" data-feather="send"></i></span>
 
                 </button>

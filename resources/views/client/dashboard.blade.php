@@ -5,7 +5,8 @@
     use \App\Enums\ReservationEnu;
 @endphp
 <!-- Header -->
-<section class="container my-5 text-center">
+<section class="container mt-20 my-5  text-center">
+
     <h1 class="fw-bold">Bienvenue, {{ Auth::user()->name }} 👋</h1>
     <p class="text-secondary">Voici un aperçu de vos réservations</p>
 </section>
@@ -43,7 +44,7 @@
 </section>
 
 <!-- Prochaine réservation -->
-<section class="container my-5">
+{{-- <section class="container my-5">
     <div class="highlight-card">
         <h4>
             <i class="bi bi-calendar-event"></i> Votre prochaine
@@ -56,7 +57,7 @@
         </p>
         <a href="details-reservation.html" class="btn btn-premium mt-2">Voir détails</a>
     </div>
-</section>
+</section> --}}
 
 <!-- Dernières réservations -->
 <section class="container my-5">

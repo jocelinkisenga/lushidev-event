@@ -20,7 +20,8 @@ class Venue extends Model
         'user_id',
         'opening',
         'closing',
-        'active'
+        'active',
+        'category_id'
     ];
 
     protected $casts = [
@@ -40,6 +41,10 @@ class Venue extends Model
     public function reservations()
     {
         return $this->hasMany(Reservation::class);
+    }
+
+    public function category() {
+        return $this->belongsTo(Category::class);
     }
 
 }

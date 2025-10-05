@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\Client\ClientController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Owner\BookingController;
 use App\Http\Controllers\Owner\CategoryController;
@@ -25,35 +27,33 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [App\Http\Controllers\MainController::class, "index"])->name('home');
 Route::get("/salle/{title}/{id}", [App\Http\Controllers\MainController::class, "show"])->name('salle.single');
 Route::get("venues/", [App\Http\Controllers\MainController::class, "venues"])->name('venues');
-
+Route::get("/contact", [ContactController::class, 'index'])->name("contact");
 Route::middleware("auth")->group(function () {
-    Route::post("reserve",[ReservationController::class,"store"])->name("store.reservation");
+    Route::post("reserve", [ReservationController::class, "store"])->name("store.reservation");
     Route::get("sent/{id}", [ReservationController::class, "send"])->name("sent.reservation");
-});
+    Route::get("chat/{venueId}",[ChatController::class, "create"])->name("chat.create");
 
+});
+Route::get("/about", [App\Http\Controllers\MainController::class, "about"])->name('about');
 // Routes for owner
-Route::middleware("auth")->prefix("owner")->group(function(){
-        Route::get("/dashboard",[OwnerDashboardController::class,"index"])->name("owner.dasboard");
-        Route::get("/categories",[CategoryController::class,"index"])->name("owner.categories");
-    Route::get("/products", [ProductController::class, "index"])->name("owner.products");
+Route::middleware(["auth", "role:3"])->prefix("owner")->group(function () {
+    Route::get("/dashboard", [OwnerDashboardController::class, "index"])->name("owner.dasboard");
     Route::get("/venues", [VenueController::class, "index"])->name("owner.venues");
     Route::get("/venuesCreate", [VenueController::class, "create"])->name("owner.venues.create");
     Route::post("/venuesStore", [VenueController::class, "store"])->name("owner.venues.store");
-    Route::get("bookings/{venueId}", [BookingController::class,"index"])->name("owner.bookings");
-Route::get("bookingsConfirm/{bookingId}", [BookingController::class,"confirm"])->name("owner.bookings.confirm");
-Route::get("booking/{bookingId}", [BookingController::class,"show"])->name("owner.bookings.detail");
+    Route::get("bookings/{venueId}", [BookingController::class, "index"])->name("owner.bookings");
+    Route::get("bookingsConfirm/{bookingId}", [BookingController::class, "confirm"])->name("owner.bookings.confirm");
     Route::get("bookingCancel/{bookingId}", [BookingController::class, "show"])->name("owner.bookings.cancel");
-
 });
 
 
 //Routes for clients
-Route::middleware("auth")->prefix("client")->group(function(){
+Route::middleware(["auth", "role:2", "role:1"])->prefix("client")->group(function () {
     Route::get("/dashboard", [ClientController::class, "index"])->name("client.dasboard");
     Route::get("/mesreservations", [ClientController::class, "reservations"])->name("client.reservations");
     Route::get("bookingClient/{bookingId}", [ClientController::class, "show"])->name("client.bookings.detail");
 });
-    // Route::get("/mesreservations",[ClientController::class,"reservations"])->name("client.reservations");
+// Route::get("/mesreservations",[ClientController::class,"reservations"])->name("client.reservations");
 
 
 require __DIR__ . '/admin.php';

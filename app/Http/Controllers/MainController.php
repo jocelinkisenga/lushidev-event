@@ -23,4 +23,8 @@ class MainController extends Controller
     public function venues () {
         return view("front.salles");
     }
+
+    public function about() {
+        return view("front.about");
+    }
 }
