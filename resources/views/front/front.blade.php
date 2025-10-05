@@ -9,12 +9,14 @@
     <link rel="stylesheet" href="{{ asset("bootstrap/css/bootstrap.min.css") }}">
     <link rel="stylesheet" href="{{ asset("main/style.css") }}">
 <link rel="stylesheet" href="{{ asset("front/vendor/fontawesome-free/css/all.min.css") }}">
+<link rel="stylesheet" href="{{ asset('vendor/flasher/flasher.min.css') }}">
 
     <!-- Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     @livewireStyles
 </head>
 <body>
+    @flasher_render()
 @include("partials.frontnav")
 
 <div class="container py-5">
@@ -56,7 +58,7 @@
       }
 
   </script>
-
+<script type="script" src="{{ asset("vendor/flasher.min.js") }}"></script>
 </body>
 
 </html>

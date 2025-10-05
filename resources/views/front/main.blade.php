@@ -1,7 +1,7 @@
 @extends("front.front")
 @section("title", 'Acceuil')
 @section("content")
-<section class="hero d-flex align-items-center" 
+<section class="hero d-flex align-items-center"
 style="background: linear-gradient(rgba(70, 65, 65, 0.6), rgba(66, 64, 64, 0.8)), url({{ asset("img/photos/unsplash-3.jpg") }}) center/cover no-repeat;">
 
 
@@ -65,7 +65,7 @@ style="background: linear-gradient(rgba(70, 65, 65, 0.6), rgba(66, 64, 64, 0.8))
 </section>
 
 <!-- Comment ça marche -->
-<section class="py-5 bg-dark">
+<section class="py-5 bg-white">
     <div class="container text-center">
         <h2 class="mb-4">Comment ça marche ?</h2>
         <div class="row g-4">

@@ -59,6 +59,8 @@
     </style>
 </head>
 <body>
+    @flasher_render()
+
     <!-- Carte Auth -->
     <div class="auth-card">
         <h2 class="text-center fw-bold mb-4">L-Event</h2>

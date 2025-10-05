@@ -1,9 +1,11 @@
-{{-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
     <div class="container container-max">
         <a class="navbar-brand" href="/" wire:navigate>
             <img src="{{ asset("logo.png") }}" class="img-fluid rounded-circle" style="width:40px; height:40px" alt="logo laeken" />
-            Laeken Consulting</a>
-        <button type="button" class="navbar-toggler navb" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation "><span class="navbar-toggler-icon"></span></button>
+            L-Event</a>
+        <a class="navbar-toggler navb custom-toggler " style="color: #d4af37;" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation "><span class="toggler-icon" style="color: #d4af37;"></span></a>
+
+
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="navbar-nav ms-auto align-items-lg-center text-white">
                 <li class="nav-item"><a class="nav-link navbar-brand" style="color:white;" href="{{ route("venues") }}" wire:navigate>Les salles</a></li>
@@ -15,10 +17,16 @@
 
 
                 <li class="nav-item"><a style="color:white;" class="nav-link navbar-brand" href="">Contact</a></li>
+              <li class="nav-item ">
+
+                  <a class="nav-link" onclick="toggleTheme()"> <i class="fa fa-moon"></i> Mode nuit / clair</a>
+
+
+              </li>
 
 
                 @guest
-                <li class="nav-item ms-3"><a style="color:white;" class="btn btn-premium py-md-3 px-md-5 me-3 animated slideInLeft" href="{{ route("login") }}" wire:navigate>Se connecter</a></li>
+                <li class="nav-item "><a style="color:white;" class="btn btn-premium " href="{{ route("login") }}" wire:navigate>Se connecter</a></li>
 
 
 
@@ -30,15 +38,15 @@
                 <li class="nav-item ms-3"><a class="btn bg-white" href="{{ route("client.dasboard") }}" wire:navigate>Dashboard</a></li>
                 @break
                 @case(3)
-                <li class="nav-item ms-3"><a class="btn bg-white" href="{{ route("owner.dasboard") }}" wire:navigate>Dashboard</a></li>
+                <li class="nav-item ms-3"><a class="btn bg-white btn-sm" href="{{ route("owner.dasboard") }}" wire:navigate>Dashboard</a></li>
                 @break
                 @default
-                <li class="nav-item ms-3"><a class="btn bg-white" href="/dashboard-admin" wire:navigate>Dashboard</a></li>
+                <li class="nav-item ms-3"><a class="btn bg-white btn-sm" href="/dashboard-admin" wire:navigate>Dashboard</a></li>
                 @endswitch
                 <li class="nav-item ms-3">
                     <form action="{{ route("logout") }}" method="post">
                         @csrf
-                        <button class="btn btn-danger">se deconnecter</button>
+                        <button class="btn btn-danger btn-sm">se deconnecter</button>
 
                     </form>
                 </li>
@@ -48,8 +56,9 @@
             </ul>
         </div>
     </div>
-</nav> --}}
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+</nav>
+
+  {{-- <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
       <div class="container-fluid">
           <!-- Logo -->
           <a class="navbar-brand fw-bold text-white" href="/">
@@ -135,5 +144,5 @@
               </ul>
           </div>
       </div>
-  </nav>
+  </nav> --}}
 
