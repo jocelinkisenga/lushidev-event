@@ -458,4 +458,57 @@ footer {
     }
 
 
+        .auth-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 400px;
+            margin: auto;
+            margin-top: 5vh;
+        }
 
+        .btn-premium {
+            background: linear-gradient(45deg, #d4af37, #ffdd55);
+            border: none;
+            color: #111;
+            font-weight: 600;
+        }
+
+        input {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            color: #eee !important;
+        }
+
+        input:focus {
+            border-color: #d4af37 !important;
+            box-shadow: none !important;
+        }
+
+        .nav-tabs .nav-link {
+            color: #aaa;
+            border: none;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: #fff;
+            background: none;
+            border-bottom: 2px solid #d4af37;
+            font-weight: bold;
+        }
+
+    .error-card {
+      background: var(--color-bg);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+         display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100%;
+      text-align: center;
+      color: var(--color-text);
+    justify-content: center;
+    }

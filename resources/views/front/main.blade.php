@@ -21,7 +21,7 @@ style="background: linear-gradient(rgba(70, 65, 65, 0.6), rgba(66, 64, 64, 0.8))
                 <input type="number" class="form-control" placeholder="👥 Pers.">
             </div>
             <div class="col-12 col-md-2">
-                <button class="btn btn-premium w-100"><i class="bi bi-search"></i> Rechercher</button>
+                <button class="btn btn-premium btn-sm w-100"><i class="bi bi-search"></i> Rechercher</button>
             </div>
         </form>
     </div>
@@ -31,11 +31,10 @@ style="background: linear-gradient(rgba(70, 65, 65, 0.6), rgba(66, 64, 64, 0.8))
 <section class="container my-5">
     <h2 class="text-center mb-4">Catégories populaires</h2>
     <div class="d-flex flex-wrap justify-content-center gap-2">
-        <button class="category-btn"><i class="bi bi-ring"></i> Mariage</button>
-        <button class="category-btn"><i class="bi bi-building"></i> Conférence</button>
-        <button class="category-btn"><i class="bi bi-balloon"></i> Anniversaire</button>
-        <button class="category-btn"><i class="bi bi-book"></i> Formation</button>
-        <button class="category-btn"><i class="bi bi-briefcase"></i> Réunion</button>
+        @foreach (\App\Models\Category::all() as $category)
+<button class="category-btn"> {{ $category->name }}</button>
+
+        @endforeach
     </div>
 </section>
 
@@ -65,25 +64,33 @@ style="background: linear-gradient(rgba(70, 65, 65, 0.6), rgba(66, 64, 64, 0.8))
 </section>
 
 <!-- Comment ça marche -->
-<section class="py-5 bg-white">
-    <div class="container text-center">
-        <h2 class="mb-4">Comment ça marche ?</h2>
-        <div class="row g-4">
-            <div class="col-4">
-                <i class="bi bi-search fs-1 text-warning"></i>
-                <p>Recherchez</p>
+<section class="container my-5">
+    <h2 class="section-title text-center">Comment ça marche ?</h2>
+    <div class="row text-center g-4 mt-3">
+        <div class="col-md-4">
+            <div class="card p-4">
+                <i class="bi bi-search fs-1 text-primary"></i>
+                <h5 class="mt-3">1. Recherchez</h5>
+                <p>Explorez notre catalogue de salles selon le type d’événement et votre localisation.</p>
             </div>
-            <div class="col-4">
-                <i class="bi bi-calendar-check fs-1 text-warning"></i>
-                <p>Réservez</p>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-4">
+                <i class="bi bi-calendar-check fs-1 text-primary"></i>
+                <h5 class="mt-3">2. Réservez</h5>
+                <p>Sélectionnez votre salle et réservez-la instantanément depuis notre plateforme sécurisée.</p>
             </div>
-            <div class="col-4">
-                <i class="bi bi-stars fs-1 text-warning"></i>
-                <p>Profitez</p>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-4">
+                <i class="bi bi-emoji-smile fs-1 text-primary"></i>
+                <h5 class="mt-3">3. Profitez</h5>
+                <p>Organisez votre événement en toute sérénité — L-Event s’occupe du reste.</p>
             </div>
         </div>
     </div>
 </section>
+
 
 <!-- Avantages -->
 <section class="container my-5">

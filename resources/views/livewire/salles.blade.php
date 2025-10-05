@@ -8,7 +8,7 @@
                 <input type="text" class="form-control" placeholder="🔍 Rechercher par ville ou salle">
             </div>
             <div class="col-4 col-md-2">
-                <button class="btn btn-premium w-100"><i class="bi bi-search"></i> Rechercher</button>
+                <button class="btn btn-premium btn-sm w-100"><i class="bi bi-search"></i> Rechercher</button>
             </div>
         </form>
     </header>
@@ -47,7 +47,7 @@
                     </select>
                 </div> --}}
                 <div class="col-12 col-md-1 d-grid">
-                    <button class="btn btn-premium" type="submit"><i class="bi bi-funnel"></i> Rechercher</button>
+                    <button class="btn btn-premium btn-sm" type="submit"><i class="bi bi-funnel"></i> Rechercher</button>
                 </div>
             </form>
         </div>

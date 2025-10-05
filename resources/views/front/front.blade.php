@@ -17,7 +17,10 @@
 </head>
 <body>
     @flasher_render()
+    @if(!Route::is('login','register'))
 @include("partials.frontnav")
+    @endif
+
 
 <div class="container py-5">
 
@@ -27,9 +30,9 @@
 </div>
 
 
-    <footer class=" footer sticky">
+    <footer class=" footer mt-auto mb-0">
         <div class="container text-center">
-            <p class="mb-2">&copy; 2025 SalleBooking. Tous droits réservés.</p>
+            <p class="mb-2">&copy; 2025 L-Event. Tous droits réservés.</p>
             <div>
                 <a href="#" class="text-light me-2"><i class="bi bi-facebook"></i></a>
                 <a href="#" class="text-light me-2"><i class="bi bi-instagram"></i></a>

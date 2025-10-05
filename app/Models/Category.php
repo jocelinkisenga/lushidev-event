@@ -13,4 +13,9 @@ class Category extends Model
         'name',
         'user_id'
     ];
+
+    public function venues()
+    {
+        return $this->hasMany(Venue::class);
+    }
 }

@@ -1,8 +1,8 @@
 @extends("front.front")
 @section("content")
- @php
- use \App\Enums\ReservationEnu;
- @endphp
+@php
+use \App\Enums\ReservationEnu;
+@endphp
 
 <!-- Header -->
 <section class="container my-5 text-center">
@@ -69,25 +69,25 @@
 <!-- Dernières réservations -->
 <section class="container my-5">
     <h4 class="mb-3">Dernières réservations reçues</h4>
-     @foreach ($latestBookings as $reservation)
+    @foreach ($latestBookings as $reservation)
 
     <div class="info-card">
         <div class="d-flex justify-content-between">
             <span><strong>{{ $reservation->title }} </strong></span>
             <span class="text-success">Confirmée</span>
-                             @switch($reservation->status)
-                             @case(ReservationEnu::CANCELLED)
-                             <span class="status status-cancelled">Anullee</span>
-                             @break
-                             @case(ReservationEnu::DONE)
-                             <span class="status status-confirmed">Confirme</span>
+            @switch($reservation->status)
+            @case(ReservationEnu::CANCELLED)
+            <span class="status status-cancelled">Anullee</span>
+            @break
+            @case(ReservationEnu::DONE)
+            <span class="status status-confirmed">Confirme</span>
 
-                             @break
+            @break
 
-                             @default
-                             <span class="status status-pending">En cours</span>
+            @default
+            <span class="status status-pending">En cours</span>
 
-                             @endswitch
+            @endswitch
 
         </div>
         <p class="text-secondary mb-0"><i class="bi bi-person"></i> {{ $reservation->user->name }} · <i class="bi bi-calendar"></i> {{ $reservation->starts_at }} </p>
@@ -99,5 +99,30 @@
     </div>
 
 </section>
+
+
+<!-- Dernières categories -->
+<section class="container my-5">
+    <h4 class="mb-3">Dernières réservations reçues</h4>
+        <div class="text-center mt-4">
+            <a href="{{ route("category.create") }}" class="btn btn-premium" wire:navigate><i class="bi bi-plus-circle"></i> Ajouter une categorie</a>
+
+        </div>
+
+    @foreach ($latestBookings as $reservation)
+    <div class="info-card">
+        <div class="d-flex justify-content-between">
+            <span><strong></strong></span>
+
+        </div>
+    </div>
+    @endforeach
+    <div class="text-center mt-4">
+        <a href="{{ route("admin.bookings") }}" class="btn btn-premium" wire:navigate><i class="bi bi-plus-circle"></i> voir plus toutes les Reservations</a>
+    </div>
+
+</section>
+
+
 
 @endsection

@@ -60,7 +60,7 @@ class Chat extends Component
                 '/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i', //pour le mail
                 '/(whatsapp|facebook|t\.me|telegram|instagram|viber|slack|messenger|skype)/i'
             ],
-            '[caché]',
+            '[texte masqué]',
             $this->message
         );
 

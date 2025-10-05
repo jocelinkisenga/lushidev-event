@@ -45,7 +45,8 @@ class VenueController extends Controller
             'user_id' => Auth::user()->id,
             'price' => $request->price,
             'opening' => $request->opening,
-            'closing' => $request->closing
+            'closing' => $request->closing,
+            'category_id'=> $request->category_id
         ]);
 
         if($request->hasFile('images')){

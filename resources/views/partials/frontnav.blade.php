@@ -11,12 +11,13 @@
                 <li class="nav-item"><a class="nav-link navbar-brand" style="color:white;" href="{{ route("venues") }}" wire:navigate>Les salles</a></li>
 
 
-                <li class="nav-item text-white"><a class="nav-link navbar-brand" href="" style="color:white;">Blog</a></li>
 
-                <li class="nav-item"><a style="color:white;" class="nav-link navbar-brand" href="">À propos</a></li>
+                <li class="nav-item"><a style="color:white;" class="nav-link navbar-brand" href="{{ route("about") }}" wire:navigate>À propos</a></li>
 
 
-                <li class="nav-item"><a style="color:white;" class="nav-link navbar-brand" href="">Contact</a></li>
+
+                <li class="nav-item"><a style="color:white;" class="nav-link navbar-brand" href="{{ route("contact") }}" wire:navigate>Contact</a></li>
+
               <li class="nav-item ">
 
                   <a class="nav-link" onclick="toggleTheme()"> <i class="fa fa-moon"></i> Mode nuit / clair</a>
@@ -35,18 +36,19 @@
                 @auth
                 @switch(Auth::user()->role)
                 @case(2)
-                <li class="nav-item ms-3"><a class="btn bg-white" href="{{ route("client.dasboard") }}" wire:navigate>Dashboard</a></li>
+                <li class="nav-item "><a class="btn bg-white" href="{{ route("client.dasboard") }}" wire:navigate>Dashboard</a></li>
                 @break
                 @case(3)
-                <li class="nav-item ms-3"><a class="btn bg-white btn-sm" href="{{ route("owner.dasboard") }}" wire:navigate>Dashboard</a></li>
+                <li class="nav-item "><a class="btn bg-white btn-sm" href="{{ route("owner.dasboard") }}" wire:navigate>Dashboard</a></li>
                 @break
                 @default
-                <li class="nav-item ms-3"><a class="btn bg-white btn-sm" href="/dashboard-admin" wire:navigate>Dashboard</a></li>
+                <li class="nav-item mr-2"><a class="btn bg-white btn-sm" href="/dashboard-admin" wire:navigate>Dashboard</a></li>
                 @endswitch
-                <li class="nav-item ms-3">
+                <li class="nav-item ml-2 mt-1">
+
                     <form action="{{ route("logout") }}" method="post">
                         @csrf
-                        <button class="btn btn-danger btn-sm">se deconnecter</button>
+                        <button class="btn btn-danger btn-sm ml-2">se deconnecter</button>
 
                     </form>
                 </li>

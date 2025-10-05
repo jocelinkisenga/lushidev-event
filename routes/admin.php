@@ -16,6 +16,7 @@ Route::get("dashboard-admin", [AdminController::class,"index"])->name("dashboard
 
     Route::get("adminActive/{venueId}", [AdminController::class, "active"])->name(name: "active.venue");
         Route::get("adminDEActive/{venueId}", [AdminController::class, "deactive"])->name("deactive.venue");
-    Route::get("/categories", [CategoryController::class, "index"])->name("owner.categories");
+    Route::get("/Createcategories", [CategoryController::class, "create"])->name("category.create");
+    Route::post("/storecategories", [CategoryController::class, "store"])->name("store.category");
     Route::get("/products", [ProductController::class, "index"])->name("owner.products");
 });

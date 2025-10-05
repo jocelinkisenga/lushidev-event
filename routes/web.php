@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\Client\ClientController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Owner\BookingController;
 use App\Http\Controllers\Owner\CategoryController;
@@ -26,16 +27,16 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [App\Http\Controllers\MainController::class, "index"])->name('home');
 Route::get("/salle/{title}/{id}", [App\Http\Controllers\MainController::class, "show"])->name('salle.single');
 Route::get("venues/", [App\Http\Controllers\MainController::class, "venues"])->name('venues');
-
+Route::get("/contact", [ContactController::class, 'index'])->name("contact");
 Route::middleware("auth")->group(function () {
     Route::post("reserve", [ReservationController::class, "store"])->name("store.reservation");
     Route::get("sent/{id}", [ReservationController::class, "send"])->name("sent.reservation");
     Route::get("chat/{venueId}",[ChatController::class, "create"])->name("chat.create");
 
 });
-
+Route::get("/about", [App\Http\Controllers\MainController::class, "about"])->name('about');
 // Routes for owner
-Route::middleware(["auth", "role:3","role:1"])->prefix("owner")->group(function () {
+Route::middleware(["auth", "role:3"])->prefix("owner")->group(function () {
     Route::get("/dashboard", [OwnerDashboardController::class, "index"])->name("owner.dasboard");
     Route::get("/venues", [VenueController::class, "index"])->name("owner.venues");
     Route::get("/venuesCreate", [VenueController::class, "create"])->name("owner.venues.create");
