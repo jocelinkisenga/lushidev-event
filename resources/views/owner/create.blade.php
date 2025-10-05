@@ -62,7 +62,7 @@
         <div class="card-custom">
             <h4><i class="bi bi-image"></i>image principale</h4>
             <div class="mt-3">
-                <input type="file" class="form-control" name="image" accept="images/*">
+                <input type="file" class="form-control" name="image" >
                 <small class="text-secondary">Formats acceptés : JPG, PNG (max 5 Mo)</small>
             </div>
         </div>
@@ -72,7 +72,7 @@
         <div class="card-custom">
             <h4><i class="bi bi-image"></i> Photos</h4>
             <div class="mt-3">
-                <input type="file" name="images[]" accept="images/*" class="form-control" multiple>
+                <input type="file" name="images[]"  class="form-control" >
                 <small class="text-secondary">Formats acceptés : JPG, PNG (max 5 Mo)</small>
             </div>
         </div>
