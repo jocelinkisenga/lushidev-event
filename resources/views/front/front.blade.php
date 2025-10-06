@@ -22,7 +22,7 @@
     @endif
 
 
-<div class="container py-5">
+<div class="container-fluid py-3 py-md-5">
 
     @yield('content')
 
