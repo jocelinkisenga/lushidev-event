@@ -1,4 +1,8 @@
-    :root {
+   html[data-theme="dark"] {
+  background-color: #0d0d0d;
+  color: #fdfdfd;
+}
+ :root {
       --color-bg: #f8f9fa;
       --color-text: #212529;
       --color-card: #ffffff;
