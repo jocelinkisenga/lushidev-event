@@ -46,7 +46,7 @@ style="background: linear-gradient(rgba(70, 65, 65, 0.6), rgba(66, 64, 64, 0.8))
 
         <div class="col-md-4">
             <div class="card shadow-sm">
-                <img src="{{ asset("/storage/".$venue->image)  }}" class="card-img-top overflow-hidden" alt="Salle" style="height:200px;">
+                <img src="{{ asset("/storage/".$venue->image)  }}" class="card-img-top overflow-hidden img-fluid" alt="Salle" style="height:200px;">
 
                 <div class="card-body">
                     <h5 class="card-title">{{ $venue->name }}</h5>
