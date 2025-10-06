@@ -22,12 +22,10 @@
     @endif
 
 
-<div class="container-fluid py-3 py-md-5">
-
     @yield('content')
 
 
-</div>
+
 
 
     <footer class=" footer mt-auto mb-0">
