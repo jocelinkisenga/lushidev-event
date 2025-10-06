@@ -171,12 +171,12 @@
         <div class="messages flex-grow-1 mb-3">
             @foreach ($messages as $msg)
                 @if ($msg->sender_id == auth()->id())
-                    <div class="message sent bg-primary text-white p-2 rounded mb-2 align-self-end" style="max-width: 70%;">
+                    <div class="message sent bg-success text-white p-2 rounded mb-2 align-self-end" style="max-width: 70%;">
                         <p class="mb-1">{{ $msg->messages }}</p>
                         <small class="text-light">{{ $msg->created_at->diffForHumans() }}</small>
                     </div>
                 @else
-                    <div class="message received bg-light p-2 rounded mb-2 align-self-start" style="max-width: 70%;">
+                    <div class="message received bg-primary p-2 rounded mb-2 align-self-start" style="max-width: 70%;">
                         <p class="mb-1">{{ $msg->messages }}</p>
                         <small class="text-muted">{{ $msg->created_at->diffForHumans() }}</small>
                     </div>
