@@ -216,20 +216,4 @@
         mobileSidebar.style.left = '-260px';
     });
 </script>
-
-<style>
-    .conversation:hover { background-color: #f1f1f1; }
-    .message.sent { text-align: right; }
-    .message.received { text-align: left; }
-
-    /* Overlay shadow on mobile when sidebar is open */
-    .sidebar-overlay::after {
-        content: "";
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0,0,0,0.2);
-        z-index: -1;
-    }
-</style>
 </div>
