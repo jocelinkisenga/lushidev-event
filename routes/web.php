@@ -48,7 +48,7 @@ Route::middleware(["auth", "role:3"])->prefix("owner")->group(function () {
 
 
 //Routes for clients
-Route::middleware(["auth", "role:2", "role:1"])->prefix("client")->group(function () {
+Route::middleware(["auth", "role:2"])->prefix("client")->group(function () {
     Route::get("/dashboard", [ClientController::class, "index"])->name("client.dasboard");
     Route::get("/mesreservations", [ClientController::class, "reservations"])->name("client.reservations");
     Route::get("bookingClient/{bookingId}", [ClientController::class, "show"])->name("client.bookings.detail");

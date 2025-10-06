@@ -20,9 +20,9 @@
 
               <li class="nav-item ">
 
-                 {{-- <a class="nav-link" onclick="toggleTheme()"> <i class="fa fa-moon"></i> Mode nuit / clair</a> --}}}
+                 {{-- <a class="nav-link" onclick="toggleTheme()"> <i class="fa fa-moon"></i> Mode nuit / clair</a> --}}
 
-  <button id="themeToggle" class="btn btn-outline-warning me-3 d-flex align-items-center justify-content-center" onclick="toggleTheme()">
+  <button id="themeToggle" class="btn btn-outline-warning me-3 d-flex align-items-center justify-content-center mb-2" onclick="toggleTheme()">
         <i id="themeIcon" class="bi bi-moon-fill"></i>
       </button>
               </li>
