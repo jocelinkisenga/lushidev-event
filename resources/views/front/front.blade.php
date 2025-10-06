@@ -66,6 +66,27 @@
       };
   });
 </script>
+
+<script>
+function toggleTheme() {
+  const navbar = document.querySelector('.navbar');
+  const icon = document.getElementById('themeIcon');
+  
+  if(navbar.getAttribute('data-theme') === 'light') {
+    navbar.setAttribute('data-theme', 'dark');
+    icon.classList.remove('bi-moon-fill');
+    icon.classList.add('bi-sun-fill');
+    navbar.style.backgroundColor = '#212529';
+    navbar.style.color = '#f8f9fa';
+  } else {
+    navbar.setAttribute('data-theme', 'light');
+    icon.classList.remove('bi-sun-fill');
+    icon.classList.add('bi-moon-fill');
+    navbar.style.backgroundColor = '#f8f9fa';
+    navbar.style.color = '#212529';
+  }
+}
+</script>
 <script type="script" src="{{ asset("vendor/flasher.min.js") }}"></script>
 </body>
 
