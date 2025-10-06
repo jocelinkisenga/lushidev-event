@@ -41,24 +41,31 @@
 @livewireScripts
     <script rel="stylesheet" src="{{ asset("bootstrap/js/bootstrap.min.js") }}"></script>
   <script>
-      // Charger le thème stocké
-      if (localStorage.getItem("theme") === "dark") {
-          document.documentElement.setAttribute("data-theme", "dark");
-      }
-
-      // Fonction de bascule
-      function toggleTheme() {
-          let current = document.documentElement.getAttribute("data-theme");
-          if (current === "dark") {
-              document.documentElement.setAttribute("data-theme", "light");
-              localStorage.setItem("theme", "light");
-          } else {
+  document.addEventListener("DOMContentLoaded", function() {
+      // Vérifie le thème stocké dans localStorage
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+      } else {
+          // Détection automatique du thème système (optionnel)
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
               document.documentElement.setAttribute("data-theme", "dark");
               localStorage.setItem("theme", "dark");
+          } else {
+              document.documentElement.setAttribute("data-theme", "light");
+              localStorage.setItem("theme", "light");
           }
       }
 
-  </script>
+      // Fonction de bascule
+      window.toggleTheme = function() {
+          let current = document.documentElement.getAttribute("data-theme");
+          let newTheme = current === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", newTheme);
+          localStorage.setItem("theme", newTheme);
+      };
+  });
+</script>
 <script type="script" src="{{ asset("vendor/flasher.min.js") }}"></script>
 </body>
 
