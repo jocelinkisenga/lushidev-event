@@ -3,7 +3,7 @@
         <a class="navbar-brand" href="/" wire:navigate>
             <img src="{{ asset("logo.png") }}" class="img-fluid rounded-circle" style="width:40px; height:40px" alt="logo laeken" />
             L-Event</a>
-        <a class="navbar-toggler navb custom-toggler " style="color: #d4af37;" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation "><span class="toggler-icon" style="color: #d4af37;"></span></a>
+        <a class="navbar-toggler navb custom-toggler " style="color: #d4af37;" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation "><i class="bi bi-list"></i></a>
 
 
         <div class="collapse navbar-collapse" id="navmenu">
